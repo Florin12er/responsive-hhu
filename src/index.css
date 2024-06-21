@@ -51,10 +51,11 @@ h3 {
 .home .section1 {
   height: calc(100vh);
   background-image: url('/public/img/bg1.png');
+  background-size: cover;
 }
 
 .page {
-  margin-top: 112px;
+  padding-top: 112px;
 }
 
 .swiper {

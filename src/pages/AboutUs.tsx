@@ -1,5 +1,6 @@
+import { useMemo, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper/modules';
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
 const members = [
   {
@@ -24,7 +25,52 @@ const members = [
   },
 ];
 
+const histories = [
+  {
+    id: 2005,
+    img: './img/aboutus_2.png',
+    title: 'Raised 25k in funding in the opening year.',
+    desc1: 'Help us on our mission to improve the lives of those in Fannin County.',
+    desc2: 'After that we knew we were on to something big.',
+    value1: 'Raised 25k in funding.',
+    value2: 'Supplied more than 10,000 meals.',
+  },
+  {
+    id: 2010,
+    img: './img/aboutus_2.png',
+    title: 'Raised 35k in funding in the opening year.',
+    desc1: 'Help us on our mission to improve the lives of those in Fannin County.',
+    desc2: 'After that we knew we were on to something big.',
+    value1: 'Raised 25k in funding.',
+    value2: 'Supplied more than 10,000 meals.',
+  },
+  {
+    id: 2015,
+    img: './img/aboutus_2.png',
+    title: 'Raised 45k in funding in the opening year.',
+    desc1: 'Help us on our mission to improve the lives of those in Fannin County.',
+    desc2: 'After that we knew we were on to something big.',
+    value1: 'Raised 25k in funding.',
+    value2: 'Supplied more than 10,000 meals.',
+  },
+  {
+    id: 2024,
+    img: './img/aboutus_2.png',
+    title: 'Raised 55k in funding in the opening year.',
+    desc1: 'Help us on our mission to improve the lives of those in Fannin County.',
+    desc2: 'After that we knew we were on to something big.',
+    value1: 'Raised 25k in funding.',
+    value2: 'Supplied more than 10,000 meals.',
+  },
+]
+
 function AboutUs() {
+  const [hKey, setHKey] = useState(2005);
+
+  const selectedHistory = useMemo(() => {
+    return histories.find(_ => _.id == hKey);
+  }, [hKey]);
+
   const pagination = {
     clickable: true,
     renderBullet: function (index: number, className: string) {
@@ -42,7 +88,31 @@ function AboutUs() {
               Help us on our mission to improve the lives of those in Fannin County
             </p>
           </div>
-          <img src="./img/aboutus_1.png" className="" />
+          <div className='h-[486px]'>
+            <Swiper
+              direction={'vertical'}
+              pagination={{
+                clickable: true,
+              }}
+              modules={[Pagination]}
+              spaceBetween={100}
+              slidesPerView={1}
+              className="h-full"
+            >
+              <SwiperSlide>
+                <img src="./img/aboutus_1.png" className="" />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src="./img/aboutus_1.png" className="" />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src="./img/aboutus_1.png" className="" />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src="./img/aboutus_1.png" className="" />
+              </SwiperSlide>
+            </Swiper>
+          </div>
         </div>
       </section>
 
@@ -55,50 +125,62 @@ function AboutUs() {
         </p>
         <div className="relative mt-20 flex items-center justify-between">
           <div className="absolute w-[98%] h-[1px] z-0 bg-[#E2E2E2] dark:bg-white" />
-          <div className="text1 py-4 px-8 z-10 text-white dark:text-black bg-black dark:bg-white">
+          <div
+            onClick={()=>setHKey(2005)}
+            className={`text1 py-4 px-8 z-10 cursor-pointer ${hKey == 2005 ? 'text-white dark:text-black bg-black dark:bg-white' : 'dark:text-[#909090] bg-[#E2E2E2] dark:bg-[#101010]'}`}
+          >
             2005
           </div>
-          <div className="text1 py-4 px-12 z-10 bg-[#E2E2E2] dark:text-[#909090] dark:bg-[#101010]">
+          <div
+            onClick={()=>setHKey(2010)}
+            className={`text1 py-4 px-8 z-10 cursor-pointer ${hKey == 2010 ? 'text-white dark:text-black bg-black dark:bg-white' : 'dark:text-[#909090] bg-[#E2E2E2] dark:bg-[#101010]'}`}
+          >
             2010
           </div>
-          <div className="text1 py-4 px-12 z-10 bg-[#E2E2E2] dark:text-[#909090] dark:bg-[#101010]">
+          <div
+            onClick={()=>setHKey(2015)}
+            className={`text1 py-4 px-8 z-10 cursor-pointer ${hKey == 2015 ? 'text-white dark:text-black bg-black dark:bg-white' : 'dark:text-[#909090] bg-[#E2E2E2] dark:bg-[#101010]'}`}
+          >
             2015
           </div>
-          <div className="text1 py-4 px-12 z-10 bg-[#E2E2E2] dark:text-[#909090] dark:bg-[#101010]">
+          <div
+            onClick={()=>setHKey(2024)}
+            className={`text1 py-4 px-8 z-10 cursor-pointer ${hKey == 2024 ? 'text-white dark:text-black bg-black dark:bg-white' : 'dark:text-[#909090] bg-[#E2E2E2] dark:bg-[#101010]'}`}
+          >
             2024
           </div>
         </div>
       </section>
 
       <section className="w-full max-w-7xl mx-auto pt-32 pb-16">
-        <div className="flex gap-20">
-          <img src="./img/aboutus_2.png" className="w-1/2" />
+        {selectedHistory && <div className="flex gap-20">
+          <img src={selectedHistory.img} className="w-1/2" />
           <div className="">
             <h2 className="">
-              Raised 25k in funding in the opening year.
+              {selectedHistory.title}
             </h2>
             <p className="mt-20 text1 font-['Roboto-thin'] dark:text-[#909090]">
-              Help us on our mission to improve the lives of those in Fannin County.
+              {selectedHistory.desc1}
             </p>
             <p className="mt-8 text1 font-['Roboto-thin'] dark:text-[#909090]">
-              After that we knew we were on to something big.
+              {selectedHistory.desc2}
             </p>
-            <div className="mt-20 stroke:black dark:stroke-white">
+            <div className="mt-20 stroke-black dark:stroke-white">
               <div className="flex items-center gap-8">
                 <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M0.714294 11.2144L4.61429 16.2286C4.74589 16.3996 4.91452 16.5386 5.10751 16.6351C5.30049 16.7316 5.51284 16.7831 5.72858 16.7857C5.94085 16.7883 6.15101 16.7433 6.34377 16.6544C6.53651 16.5654 6.70701 16.4346 6.84287 16.2714L19.2857 1.21436" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
-                <p className="text2">Raised 25k in funding.</p>
+                <p className="text2">{selectedHistory.value1}</p>
               </div>
               <div className="mt-12 flex items-center gap-8">
                 <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M0.714294 11.2144L4.61429 16.2286C4.74589 16.3996 4.91452 16.5386 5.10751 16.6351C5.30049 16.7316 5.51284 16.7831 5.72858 16.7857C5.94085 16.7883 6.15101 16.7433 6.34377 16.6544C6.53651 16.5654 6.70701 16.4346 6.84287 16.2714L19.2857 1.21436" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
-                <p className="text2">Supplied more than 10,000 meals.</p>
+                <p className="text2">{selectedHistory.value2}</p>
               </div>
             </div>
           </div>
-        </div>
+        </div>}
       </section>
 
       <section className="w-full max-w-7xl mx-auto pt-32 pb-16">
@@ -169,17 +251,39 @@ function AboutUs() {
           <p className="text1 mt-8 w-full max-w-3xl dark:font-['Roboto-thin'] dark:text-[#909090]">
             Meet the team that is responsible for HHU.
           </p>
-          <div className='hidden dark:flex my-16 justify-between items-center'>
-            <img src='./img/spacex-white.png' />
-            <img src='./img/Amazon-white.png' />
-            <img src='./img/Google-white.png' />
-            <img src='./img/spacex-white.png' />
-          </div>
-          <div className='flex dark:hidden my-16 justify-between items-center'>
-            <img src='./img/SpaceX_Black.png' />
-            <img src='./img/amazon-black.png' />
-            <img src='./img/google-black.png' />
-            <img src='./img/SpaceX_Black.png' />
+          <div className='my-16'>
+            <Swiper
+              spaceBetween={40}
+              slidesPerView={4}
+              autoplay={{
+                delay: 1000,
+                disableOnInteraction: false,
+              }}
+              navigation={true}
+              modules={[Autoplay, Pagination, Navigation]}
+              loop={true}
+            >
+              <SwiperSlide>
+                <img src='./img/spacex-white.png' className='hidden dark:block' />
+                <img src='./img/SpaceX_Black.png' className='dark:hidden' />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src='./img/Amazon-white.png' className='hidden dark:block' />
+                <img src='./img/amazon-black.png' className='dark:hidden' />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src='./img/Google-white.png' className='hidden dark:block' />
+                <img src='./img/google-black.png' className='dark:hidden' />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src='./img/spacex-white.png' className='hidden dark:block' />
+                <img src='./img/SpaceX_Black.png' className='dark:hidden' />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src='./img/spacex-white.png' className='hidden dark:block' />
+                <img src='./img/SpaceX_Black.png' className='dark:hidden' />
+              </SwiperSlide>
+            </Swiper>
           </div>
         </div>
       </section>

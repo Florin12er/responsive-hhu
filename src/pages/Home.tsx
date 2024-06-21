@@ -62,9 +62,9 @@ function Home() {
           <h3 className="text-center font-['Roboto-thin'] max-w-2xl mt-12 dark:text-[#909090]">
             Join us in serving those in Fannin County who need our help the most.
           </h3>
-          <button className="w-44 h-14 font-semibold rounded-xl text2 mt-16 bg-[#FF3F4F] dark:text-black">
+          <a href='#upcoming' className="px-12 py-4 font-semibold rounded-xl text2 mt-16 bg-[#FF3F4F] dark:text-black">
             Events
-          </button>
+          </a>
         </div>
         <div className="absolute left-0 bottom-0 w-full">
           <img src="./img/home_section1_effect.png" alt="effect1" className="w-full" />
@@ -110,7 +110,7 @@ function Home() {
           </div>
         </div>
 
-        <div className="relative w-full py-8 px-20 flex items-center gap-20 total_donation">
+        <div id='about-us' className="relative w-full py-8 px-20 flex items-center gap-20 total_donation">
           <div className="absolute top-0 right-0">
             <img src="./img/home_section2_effect.png" alt="effect2" className="w-3/5 float-right -mt-20" />
           </div>
@@ -122,11 +122,13 @@ function Home() {
             <p className="text2 font-['Roboto-thin'] mt-4 dark:text-[#909090]">
               quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
             </p>
-            <button className="mt-12 px-8 h-14 text2 rounded-xl bg-[#E2E2E2] dark:bg-[#101010]">
-              Learn More
-            </button>
+            <div className='mt-12'>
+              <a href='/aboutus' className="px-8 py-4 h-14 text2 rounded-xl bg-[#E2E2E2] dark:bg-[#101010]">
+                Learn More
+              </a>
+            </div>
           </div>
-          <div className="flex-1 p-8 rounded-xl z-50 bg-white dark:bg-black">
+          <div className="flex-1 p-8 rounded-xl z-30 bg-white dark:bg-black">
             <div className="grid grid-cols-2 py-4 font-['Roboto-thin'] stroke-black dark:stroke-white">
               <div className="flex items-center gap-8">
                 <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -170,8 +172,8 @@ function Home() {
               </div>
             </div>
             <h3 className="mt-8">Total Donation</h3>
-            <div className="w-full h-2 mt-8 rounded-full dark:bg-white">
-              <div className="w-2/3 h-2 rounded-full dark:bg-[#FF3F4F]" />
+            <div className="w-full h-2 mt-8 rounded-full bg-[#D9D9D9] dark:bg-white">
+              <div className="w-2/3 h-2 rounded-full bg-[#FF3F4F]" />
             </div>
             <div className="flex justify-between mt-8">
               <p className="text1">Collection - $75k</p>
@@ -194,14 +196,16 @@ function Home() {
               <p className="text2 mt-8 font-['Roboto-thin'] dark:text-[#909090]">
                 Help us on our mission to improve the lives of those in Fannin County
               </p>
-              <button className="mt-12 px-8 h-14 text2 rounded-xl dark:text-black bg-[#FF3F4F]">
-                Sign Up
-              </button>
+              <div className='mt-12'>
+                <a href='#contact' className="px-8 py-4 text2 rounded-xl dark:text-black bg-[#FF3F4F]">
+                  Sign Up
+                </a>
+              </div>
             </div>
           </div>
         </div>
 
-        <div className="w-full py-20 gap-20">
+        <div id='projects' className="w-full py-20 gap-20">
           <h2 className="w-full text-center">Projects</h2>
           <h3 className="w-full text-center mt-12 font-['Roboto-thin'] dark:text-[#909090]">
             Subsidiary Charity’s Managed by the Heaven Help Us Foundation
@@ -215,28 +219,30 @@ function Home() {
             >
               {projects.map(_ =>
                 <SwiperSlide key={_.id}>
-                  <div className='flex justify-center'>
+                  <a href='/projects' className='flex justify-center'>
                     <div className="w-fit">
                       <img src={_.img} />
                       <h3 className="py-8 text-center rounded-b-3xl bg-[#E2E2E2] dark:bg-[#101010]">
                         {_.name}
                       </h3>
                     </div>
-                  </div>
+                  </a>
                 </SwiperSlide>
               )}
             </Swiper>
           </div>
         </div>
 
-        <div className="w-full py-20 gap-20">
+        <div id='upcoming' className="w-full py-20 gap-20">
           <h2 className="w-full text-center">Upcoming Events</h2>
           <h3 className="w-full text-center mt-12 font-['Roboto-thin'] dark:text-[#909090]">
             Join Upcoming Events and Webinars
           </h3>
           <div className='mt-28 grid grid-cols-2 gap-20'>
             <div className="w-full">
-              <img src="./img/poor_child.png" alt="poor child" className="w-full rounded-t-xl" />
+              <a href='/upcoming'>
+                <img src="./img/poor_child.png" alt="poor child" className="w-full rounded-t-xl" />
+              </a>
               <div className="p-8 rounded-b-xl bg-[#E2E2E2] dark:bg-[#101010]">
                 <h3>Education for Poor Children</h3>
                 <p className="text1 font-['Roboto-thin'] mt-4 dark:text-[#909090]">

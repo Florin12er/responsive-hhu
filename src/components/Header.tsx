@@ -13,17 +13,17 @@ function Header() {
   }
 
   return (
-    <header className='fixed top-0 left-0 w-full h-28 flex justify-between items-center px-20 z-50 bg-white dark:bg-black bg-opacity-70'>
-      <a href='/'>
+    <header className='fixed top-0 left-0 w-full h-28 flex justify-between items-center px-20 z-50 bg-white dark:bg-black bg-opacity-60 dark:bg-opacity-60'>
+      <a href='/' className='flex-1'>
         <h3 className='font-bold dark:text-white'>HHU</h3>
       </a>
       <div className="flex items-center gap-16 dark:text-white">
-        <a href='/aboutus' className="text2 cursor-pointer">About Us</a>
-        <a href='/projects' className="text2 cursor-pointer">Projects</a>
-        <a href='/upcoming' className="text2 cursor-pointer">Upcoming</a>
+        <a href='/#about-us' className="text2 cursor-pointer">About Us</a>
+        <a href='/#projects' className="text2 cursor-pointer">Projects</a>
+        <a href='/#upcoming' className="text2 cursor-pointer">Upcoming</a>
         <a href='/#contact' className="text2 cursor-pointer">Contact</a>
       </div>
-      <div className="flex items-cener gap-8">
+      <div className="flex-1 flex items-center justify-end gap-8">
         <button className="h-14 px-6 text2 rounded-xl text-white dark:text-black bg-black dark:bg-white">
           Donation
         </button>
