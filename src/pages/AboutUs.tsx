@@ -80,7 +80,7 @@ function AboutUs() {
 
   return (
     <div className="page bg-white text-black dark:bg-black dark:text-white">
-      <section className="w-full max-w-7xl mx-auto py-24">
+      <section className="w-full max-w-screen-2xl px-8 mx-auto py-24">
         <div className="flex items-center gap-20">
           <div className="">
             <h2>Helping our community one step at a time.</h2>
@@ -116,7 +116,7 @@ function AboutUs() {
         </div>
       </section>
 
-      <section className="w-full max-w-7xl mx-auto py-16">
+      <section className="w-full max-w-screen-2xl  px-8 mx-auto py-16">
         <h2 className="text-center">
           Our History
         </h2>
@@ -152,7 +152,7 @@ function AboutUs() {
         </div>
       </section>
 
-      <section className="w-full max-w-7xl mx-auto pt-32 pb-16">
+      <section className="w-full max-w-screen-2xl px-8 mx-auto pt-32 pb-16">
         {selectedHistory && <div className="flex gap-20">
           <img src={selectedHistory.img} className="w-1/2" />
           <div className="">
@@ -183,7 +183,7 @@ function AboutUs() {
         </div>}
       </section>
 
-      <section className="w-full max-w-7xl mx-auto pt-32 pb-16">
+      <section className="w-full max-w-screen-2xl px-8 mx-auto pt-32 pb-16">
         <h2 className="text-center">
           Mission and Vision
         </h2>
@@ -201,7 +201,7 @@ function AboutUs() {
         </div>
       </section>
 
-      <section className="w-full max-w-7xl mx-auto pt-32 pb-16">
+      <section className="w-full max-w-screen-2xl px-8 mx-auto pt-32 pb-16">
         <div className="w-full py-20 gap-20">
           <h2 className="w-full">Meet Our Team</h2>
           <p className="text1 mt-8 w-full max-w-3xl font-['Roboto-thin'] dark:text-[#909090]">
@@ -245,7 +245,7 @@ function AboutUs() {
         </div>
       </section>
 
-      <section className="w-full max-w-7xl mx-auto py-16">
+      <section className="w-full max-w-screen-2xl px-8 mx-auto py-16">
         <div className="w-full gap-20">
           <h2 className="w-full">Our Sponsors</h2>
           <p className="text1 mt-8 w-full max-w-3xl dark:font-['Roboto-thin'] dark:text-[#909090]">

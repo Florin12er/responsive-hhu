@@ -3,7 +3,7 @@ import Map from '../components/Map';
 function Upcoming() {
   return (
     <div className="page bg-white text-black dark:bg-black dark:text-white">
-      <section className="w-full max-w-7xl mx-auto py-16">
+      <section className="w-full max-w-screen-2xl px-8 mx-auto py-16">
         <div className="relative flex justify-center mt-12">
           <img src="./img/upcoming_1.png" className="w-full max-w-3xl mx-auto" />
           <div className="absolute -bottom-20 w-full max-w-md rounded-2xl py-6 px-12 bg-[#E2E2E2] dark:bg-[#101010]">
@@ -12,17 +12,24 @@ function Upcoming() {
         </div>
       </section>
 
-      <section className="w-full max-w-7xl mx-auto py-16">
+      <section className="w-full max-w-screen-2xl px-8 mx-auto py-16">
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-8">
-            <div>//</div>
+            <div className='stroke-black dark:stroke-white'>
+              <svg width="33" height="31" viewBox="0 0 33 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M27.7549 1.24104C30.055 0.628215 32.1755 2.63993 31.5295 4.82206L26.2308 22.7214C25.9422 23.6963 25.1391 24.4582 24.1116 24.732L5.24474 29.759C2.94466 30.3716 0.824205 28.3601 1.47016 26.1779L6.76878 8.27857C7.05738 7.30365 7.86047 6.54174 8.8881 6.26794L27.7549 1.24104Z" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12.848 18.9647C14.8649 20.8782 18.1351 20.8782 20.152 18.9647C22.169 17.0512 22.169 13.9488 20.152 12.0353C18.1351 10.1218 14.8649 10.1218 12.848 12.0353C10.831 13.9488 10.831 17.0512 12.848 18.9647Z" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
             <div>
               <p className="text2 font-['Roboto-thin'] dark:text-[#909090]">1455 Lickskillet Circle,</p>
               <p className="text2 font-['Roboto-thin'] dark:text-[#909090]">Epworth, GA, 30541, United States</p>
             </div>
           </div>
           <div className="flex items-center gap-8">
-            <div>//</div>
+            <div>
+              <img src='./img/alarm-clock.png' />
+            </div>
             <div>
               <p className="text1 font-['Roboto-thin'] dark:text-[#909090]">10:00 - 18:00, Thursday</p>
             </div>
@@ -36,7 +43,7 @@ function Upcoming() {
         </p>
       </section>
 
-      <section className="w-full max-w-7xl mx-auto p-16">
+      <section className="w-full max-w-screen-2xl px-8 mx-auto p-16">
         <Map center={[51.505, -0.09]} zoom={13} />
       </section>
     </div>

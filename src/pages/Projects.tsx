@@ -1,7 +1,7 @@
 function Projects() {
   return (
     <div className="page bg-white text-black dark:bg-black dark:text-white">
-      <section className="w-full max-w-7xl mx-auto py-16">
+      <section className="w-full max-w-screen-2xl px-8 mx-auto py-16">
         <div className="flex items-center gap-20">
           <img src="./img/project_1.png" className="w-2/5" />
           <div className="">
@@ -16,7 +16,7 @@ function Projects() {
         </div>
       </section>
 
-      <section className="w-full max-w-7xl mx-auto py-16">
+      <section className="w-full max-w-screen-2xl px-8 mx-auto py-16">
         <h2 className="">
           Why Is This Charity Needed?
         </h2>
@@ -25,7 +25,7 @@ function Projects() {
         </p>
       </section>
 
-      <section className="w-full max-w-7xl mx-auto pt-32 pb-16">
+      <section className="w-full max-w-screen-2xl px-8 mx-auto pt-32 pb-16">
         <h2 className="">
           How You Can Help
         </h2>
@@ -39,7 +39,7 @@ function Projects() {
         </div>
       </section>
 
-      <section className="w-full max-w-7xl mx-auto py-16">
+      <section className="w-full max-w-screen-2xl px-8 mx-auto py-16">
         <img src="./img/young_girl.png" className="w-1/2" />
       </section>
     </div>
