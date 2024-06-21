@@ -13,15 +13,15 @@ function Header() {
   }
 
   return (
-    <header className='w-full h-28 flex justify-between items-center px-20 bg-white dark:bg-black bg-opacity-25'>
+    <header className='fixed top-0 left-0 w-full h-28 flex justify-between items-center px-20 z-50 bg-white dark:bg-black bg-opacity-70'>
       <a href='/'>
         <h3 className='font-bold dark:text-white'>HHU</h3>
       </a>
       <div className="flex items-center gap-16 dark:text-white">
-        <a className="text2 cursor-pointer">About Us</a>
+        <a href='/aboutus' className="text2 cursor-pointer">About Us</a>
         <a href='/projects' className="text2 cursor-pointer">Projects</a>
         <a href='/upcoming' className="text2 cursor-pointer">Upcoming</a>
-        <a className="text2 cursor-pointer">Contact</a>
+        <a href='/#contact' className="text2 cursor-pointer">Contact</a>
       </div>
       <div className="flex items-cener gap-8">
         <button className="h-14 px-6 text2 rounded-xl text-white dark:text-black bg-black dark:bg-white">

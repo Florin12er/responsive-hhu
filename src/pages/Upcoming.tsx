@@ -2,7 +2,7 @@ import Map from '../components/Map';
 
 function Upcoming() {
   return (
-    <div className="home bg-white text-black dark:bg-black dark:text-white">
+    <div className="page bg-white text-black dark:bg-black dark:text-white">
       <section className="w-full max-w-7xl mx-auto py-16">
         <div className="relative flex justify-center mt-12">
           <img src="./img/upcoming_1.png" className="w-full max-w-3xl mx-auto" />

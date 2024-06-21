@@ -49,17 +49,13 @@ h3 {
 }
 
 .home .section1 {
-  height: calc(100vh - 112px);
+  height: calc(100vh);
   background-image: url('/public/img/bg1.png');
 }
-/* 
-.home .section2 .total_donation {
-  background-image: url('/public/img/home_section2_effect.png');
-  background-position: right;
-  background-repeat: no-repeat;
-  background-size: contain, cover;
-  background-position-y: 50%;
-} */
+
+.page {
+  margin-top: 112px;
+}
 
 .swiper {
   padding-bottom: 90px !important;

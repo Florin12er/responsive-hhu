@@ -263,7 +263,7 @@ function Home() {
           </div>
         </div>
 
-        <div className="w-full pt-32 pb-20 flex gap-20">
+        <div id="contact" className="w-full pt-32 pb-20 flex gap-20">
           <div className='w-3/5'>
             <Map center={[51.505, -0.09]} zoom={13} />
             <div className='grid grid-cols-3 gap-8 mt-12'>

@@ -18,7 +18,7 @@ function Map({ center, zoom }: MapProps) {
     }).addTo(map);
   }, [center, zoom]);
 
-  return <div id="map" style={{ height: '400px', borderRadius: '20px' }}></div>;
+  return <div id="map" style={{ height: '400px', borderRadius: '20px', zIndex: 0 }}></div>;
 }
 
 export default Map;

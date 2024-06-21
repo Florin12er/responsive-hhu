@@ -1,6 +1,6 @@
 function Projects() {
   return (
-    <div className="home bg-white text-black dark:bg-black dark:text-white">
+    <div className="page bg-white text-black dark:bg-black dark:text-white">
       <section className="w-full max-w-7xl mx-auto py-16">
         <div className="flex items-center gap-20">
           <img src="./img/project_1.png" className="w-2/5" />
