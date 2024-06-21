@@ -112,7 +112,7 @@ function Home() {
 
         <div id='about-us' className="relative w-full py-8 px-20 flex items-center gap-20 total_donation">
           <div className="absolute top-0 right-0">
-            <img src="./img/home_section2_effect.png" alt="effect2" className="w-3/5 float-right -mt-20" />
+            <img src="./img/home_section2_effect.png" alt="effect2" className="w-3/5 float-right -mt-20 hidden dark:block" />
           </div>
           <div className="flex-1">
             <h2>About Us</h2>
@@ -187,7 +187,7 @@ function Home() {
 
         <div className="w-full py-20 flex items-center gap-20">
           <div className="w-2/5 p-8">
-            <img src="./img/home_section2_effect2.png" alt="effect2" className="w-full" />
+            <img src="./img/home_section2_effect2.png" alt="effect2" className="w-full hidden dark:block" />
           </div>
           <div className="relative w-3/5 pr-20">
             <img src="./img/smiling_child.png" alt="smiling child" className="w-full" />
