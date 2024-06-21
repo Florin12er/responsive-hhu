@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
 import Map from '../components/Map';
+import getStripe, {PRICE_ID} from '../lib/getStripe';
 
 const projects = [
   {
@@ -47,12 +49,33 @@ const events = [
 ];
 
 function Home() {
+  const [message, setMessage] = useState('');
+
   const pagination = {
     clickable: true,
     renderBullet: function (index: number, className: string) {
       return '<span class="' + className + '"></span>';
     },
   };
+
+  async function handleCheckout() {
+    const stripe = await getStripe();
+    const { error } = await stripe!.redirectToCheckout({
+      lineItems: [{
+        price: PRICE_ID,
+        quantity: 1,
+      }],
+      mode: 'payment',
+      successUrl: `http://localhost:3000/success`,
+      cancelUrl: `http://localhost:3000/success`,
+      submitType: 'donate',
+    });
+    console.warn(error.message);
+  }
+  
+  const signup = () => {
+    setMessage('Hi I am interested in volunteering for your organization"');
+  }
 
   return (
     <div className="home bg-white text-black dark:bg-black dark:text-white">
@@ -113,6 +136,7 @@ function Home() {
         <div id='about-us' className="relative w-full py-8 px-20 flex items-center gap-20 total_donation">
           <div className="absolute top-0 right-0">
             <img src="./img/home_section2_effect.png" alt="effect2" className="w-3/5 float-right -mt-20 hidden dark:block" />
+            <img src="./img/home_section2_effect_light.png" alt="effect2" className="w-3/5 float-right -mt-20 block dark:hidden" />
           </div>
           <div className="flex-1">
             <h2>About Us</h2>
@@ -179,7 +203,7 @@ function Home() {
               <p className="text1">Collection - $75k</p>
               <p className="text1">Goal - $100k</p>
             </div>
-            <button className="mt-12 px-8 h-14 text2 rounded-xl dark:text-black bg-[#FF3F4F]">
+            <button onClick={handleCheckout} className="mt-12 px-8 h-14 text2 rounded-xl dark:text-black bg-[#FF3F4F]">
               Donate
             </button>
           </div>
@@ -188,16 +212,21 @@ function Home() {
         <div className="w-full py-20 flex items-center gap-20">
           <div className="w-2/5 p-8">
             <img src="./img/home_section2_effect2.png" alt="effect2" className="w-full hidden dark:block" />
+            <img src="./img/home_section2_effect2_light.png" alt="effect2" className="w-full float-right -mt-6 block dark:hidden" />
           </div>
-          <div className="relative w-3/5 pr-20">
+          <div className="relative w-3/5 pr-12">
             <img src="./img/smiling_child.png" alt="smiling child" className="w-full" />
-            <div className="absolute -bottom-20 -left-80 rounded-xl p-12 w-96 bg-white dark:bg-black">
+            <div className="absolute -bottom-12 -left-80 rounded-xl p-12 w-96 bg-white dark:bg-black">
               <h3>Volunteer With Us</h3>
               <p className="text2 mt-8 font-['Roboto-thin'] dark:text-[#909090]">
                 Help us on our mission to improve the lives of those in Fannin County
               </p>
               <div className='mt-12'>
-                <a href='#contact' className="px-8 py-4 text2 rounded-xl dark:text-black bg-[#FF3F4F]">
+                <a
+                  href='#contact'
+                  onClick={() => setMessage('Hi I am interested in volunteering for your organization')}
+                  className="px-8 py-4 text2 rounded-xl dark:text-black bg-[#FF3F4F]"
+                >
                   Sign Up
                 </a>
               </div>
@@ -302,7 +331,7 @@ function Home() {
             </div>
             <div className="mt-8">
               <label className="text2 font-['Roboto-thin'] dark:text-[#909090]">Message</label>
-              <textarea className="w-full h-40 p-4 rounded-lg mt-2 bg-transparent focus:outline-none border dark:border-[#101010]" />
+              <textarea value={message} className="w-full h-28 p-4 rounded-lg mt-2 bg-transparent focus:outline-none border dark:border-[#101010]" />
             </div>
             <button className="px-8 py-4 mt-8 text2 text-black rounded-md bg-[#E2E2E2] dark:bg-white">
               Send Message

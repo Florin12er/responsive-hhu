@@ -1,4 +1,5 @@
 import { useLocation } from 'react-router-dom';
+import getStripe, {PRICE_ID} from '../lib/getStripe';
 
 function Header() {
   const location = useLocation()
@@ -10,6 +11,21 @@ function Header() {
       localStorage.setItem('color-theme', 'light');
     }
     window.location.href = location.pathname;
+  }
+
+  async function handleCheckout() {
+    const stripe = await getStripe();
+    const { error } = await stripe!.redirectToCheckout({
+      lineItems: [{
+        price: PRICE_ID,
+        quantity: 1,
+      }],
+      mode: 'payment',
+      successUrl: `http://localhost:3000/success`,
+      cancelUrl: `http://localhost:3000/success`,
+      submitType: 'donate',
+    });
+    console.warn(error.message);
   }
 
   return (
@@ -24,7 +40,7 @@ function Header() {
         <a href='/#contact' className="text2 cursor-pointer">Contact</a>
       </div>
       <div className="flex-1 flex items-center justify-end gap-8">
-        <button className="h-14 px-6 text2 rounded-xl text-white dark:text-black bg-black dark:bg-white">
+        <button onClick={handleCheckout} className="h-14 px-6 text2 rounded-xl text-white dark:text-black bg-black dark:bg-white">
           Donation
         </button>
         <button onClick={changeTheme} className="h-14 px-4 rounded-xl font-medium bg-black dark:bg-white stroke-white dark:stroke-black">

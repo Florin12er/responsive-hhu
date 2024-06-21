@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import L, { LatLngExpression } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
@@ -8,14 +8,22 @@ interface MapProps {
 }
 
 function Map({ center, zoom }: MapProps) {
-  useEffect(() => {
-    // Leaflet map creating
-    const map = L.map('map').setView(center, zoom);
+  const [init, setInit] = useState(false);
 
-    // OpenStreetMap layer adding
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
+  useEffect(() => {
+    setInit(true);
+  }, []);
+
+  useEffect(() => {
+    if (!init) {
+      // Leaflet map creating
+      const map = L.map('map').setView(center, zoom);
+
+      // OpenStreetMap layer adding
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(map);
+    }
   }, [center, zoom]);
 
   return <div id="map" style={{ height: '400px', borderRadius: '20px', zIndex: 0 }}></div>;
