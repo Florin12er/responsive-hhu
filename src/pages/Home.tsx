@@ -331,7 +331,7 @@ function Home() {
             </div>
             <div className="mt-8">
               <label className="text2 font-['Roboto-thin'] dark:text-[#909090]">Message</label>
-              <textarea value={message} className="w-full h-28 p-4 rounded-lg mt-2 bg-transparent focus:outline-none border dark:border-[#101010]" />
+              <textarea onChange={(e) => setMessage(e.target.value)} value={message} className="w-full h-28 p-4 rounded-lg mt-2 bg-transparent focus:outline-none border dark:border-[#101010]" />
             </div>
             <button className="px-8 py-4 mt-8 text2 text-black rounded-md bg-[#E2E2E2] dark:bg-white">
               Send Message
