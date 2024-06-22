@@ -1,2 +1,2 @@
 # HHU
-HHU website
+HHU websit
